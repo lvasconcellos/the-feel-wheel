@@ -1,5 +1,6 @@
 [
   {
+    "icon": "sentiment_frustrated",
     "color": "#a1bfd0",
     "name": "Fearful",
     "children": [
@@ -48,6 +49,7 @@
     ]
   },
   {
+    "icon": "sentiment_extremely_dissatisfied",
     "color": "#ff908f",
     "name": "Angry",
     "children": [
@@ -110,6 +112,7 @@
     ]
   },
   {
+    "icon": "sick",
     "color": "#918e91",
     "name": "Disgusted",
     "children": [
@@ -144,6 +147,7 @@
     ]
   },
   {
+    "icon": "sentiment_sad",
     "color": "#90bce4",
     "name": "Sad",
     "children": [
@@ -192,6 +196,7 @@
     ]
   },
   {
+    "icon": "sentiment_excited",
     "color": "#fefd90",
     "name": "Happy",
     "children": [
@@ -261,6 +266,7 @@
     ]
   },
   {
+    "icon": "sentiment_worried",
     "color": "#bea2d2",
     "name": "Surprised",
     "children": [
@@ -295,6 +301,7 @@
     ]
   },
   {
+    "icon": "sentiment_stressed",
     "color": "#8ed9ae",
     "name": "Bad",
     "children": [

@@ -4,7 +4,7 @@ import html2canvas from 'html2canvas';
 import Swal from 'sweetalert2';
 import * as am4core from '@amcharts/amcharts4/core';
 import am4themes_animated from '@amcharts/amcharts4/themes/animated';
-import * as am4plugins from '@amcharts/amcharts4/plugins/sunburst';
+import * as am4plugins_sunburst from '@amcharts/amcharts4/plugins/sunburst';
 import data from './data.json';
 
 am4core.useTheme(am4themes_animated);
@@ -13,18 +13,12 @@ function App(props) {
   const chart = useRef(null);
 
   useLayoutEffect(() => {
-    let chart = am4core.create('chartdiv', am4plugins.Sunburst);
-
+    // Create the chart
+    let chart = am4core.create('chartdiv', am4plugins_sunburst.Sunburst);
     chart.fontSize = 11;
-    chart.innerRadius = am4core.percent(0);
-    chart.radius = am4core.percent(100);
-
-    // Make colors more distinctive
-    chart.colors.step = 3;
 
     // Add multi-level data
-    chart.dataSource.data = data;
-    console.log(chart.dataSource.data);
+    chart.data = data;
 
     // Define data fields
     chart.dataFields.value = 'value';
@@ -60,6 +54,13 @@ function App(props) {
     };
   }, []);
 
-  return <div id="chartdiv" style={{ fontFamily: 'Figtree' }}></div>;
+  return (
+    <div className="App">
+      <div
+        id="chartdiv"
+        style={{ height: '90vh', width: '100%', fontFamily: 'calibri' }}
+      ></div>
+    </div>
+  );
 }
 export default App;
