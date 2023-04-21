@@ -1,18 +1,17 @@
 import React, { useRef, useLayoutEffect } from 'react';
-import '../style.css';
 import pSBC from 'shade-blend-color';
 import html2canvas from 'html2canvas';
 import Swal from 'sweetalert2';
 import * as am4core from '@amcharts/amcharts4/core';
 import am4themes_animated from '@amcharts/amcharts4/themes/animated';
 import * as am4plugins_sunburst from '@amcharts/amcharts4/plugins/sunburst';
+import '../assets/style.css';
 import data from '../data/en.json';
-import br from '../dist/img/br.svg';
+import br from '../assets/img/br.svg';
 
 am4core.useTheme(am4themes_animated);
 
 function English(props) {
-  
   useLayoutEffect(() => {
     // Create the chart
     let chart = am4core.create('chartdiv', am4plugins_sunburst.Sunburst);
