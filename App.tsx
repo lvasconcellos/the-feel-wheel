@@ -6,7 +6,7 @@ import Swal from 'sweetalert2';
 import * as am4core from '@amcharts/amcharts4/core';
 import am4themes_animated from '@amcharts/amcharts4/themes/animated';
 import * as am4plugins_sunburst from '@amcharts/amcharts4/plugins/sunburst';
-import data from './data.json';
+import data from './data/en.json';
 
 am4core.useTheme(am4themes_animated);
 
