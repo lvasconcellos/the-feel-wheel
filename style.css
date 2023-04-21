@@ -1,10 +1,9 @@
 body {
   margin: 0;
   padding: 48px 0;
-  font-size: 0.8rem;
   line-height: 1.6rem;
   min-height: 100vh;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Fjalla One', sans-serif;
   color: black;
 }
 
@@ -50,7 +49,6 @@ article a::after {
 /* basic article elements styling */
 article h2 {
   margin: 0 0 18px 0;
-  font-size: 1.9rem;
   letter-spacing: 0.06em;
   transition: color 0.3s ease-out;
 }
@@ -163,7 +161,7 @@ Generic layout (demo looks)
 
 .circle-icon {
   border-radius: 50%;
-  font-size: 90px;
+  font-size: 7.3rem;
 }
 
 /* custom scrollbar */
@@ -193,15 +191,16 @@ body.swal2-shown > [aria-hidden='true'] {
 
 #chartdiv {
   width: 100%;
-  min-height: 980px;
-  margin: 0;
-  padding: 0;
+  height: 950px;
 }
 
 .swal2-container {
   font-family: 'Caveat', cursive !important;
 }
 
+.swal2-styled {
+  font-size: 1.5rem !important;
+}
 .swal2-popup {
   color: black !important;
 }

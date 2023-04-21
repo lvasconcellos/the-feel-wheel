@@ -16,7 +16,6 @@ function App(props) {
   useLayoutEffect(() => {
     // Create the chart
     let chart = am4core.create('chartdiv', am4plugins_sunburst.Sunburst);
-    //chart.fontSize = '0.7rem';
 
     // Add multi-level data
     chart.data = data;
@@ -95,12 +94,12 @@ function App(props) {
           </div>
           <div class="bd-highlight">
               <h3>
-                I am <span class="text-uppercase">${feeling}</span>
+                I am feeling <span class="text-uppercase">${feeling}</span>
               </h3>
           </div>
           <div class="bd-highlight">
             <h4 class="card-title" style="background-color: ${bgLightColor};">
-              And I feel this way because:
+              And that is because:
             </h4>
           </div>
           </div>
