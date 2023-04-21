@@ -266,7 +266,7 @@
     ]
   },
   {
-    "icon": "sentiment_worried",
+    "icon": "mood_bad",
     "color": "#bea2d2",
     "name": "Surprised",
     "children": [
