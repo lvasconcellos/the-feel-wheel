@@ -1,7 +1,7 @@
 [
   {
     "icon": "sentiment_frustrated",
-    "color": "#ffdf8e",
+    "color": "#a1bfd0",
     "name": "Fearful",
     "children": [
       {
@@ -271,31 +271,31 @@
     "name": "Surprised",
     "children": [
       {
-        "name": "Startled",
+        "name": "Excited",
         "children": [
-          { "name": "Shocked", "value": 1 },
-          { "name": "Dismayed", "value": 1 }
-        ]
-      },
-      {
-        "name": "Confused",
-        "children": [
-          { "name": "Perplexed", "value": 1 },
-          { "name": "Disillusioned", "value": 1 }
+          { "name": "Eager", "value": 1 },
+          { "name": "Energetic", "value": 1 }
         ]
       },
       {
         "name": "Amazed",
         "children": [
-          { "name": "Astonished", "value": 1 },
-          { "name": "Awed", "value": 1 }
+          { "name": "Awed", "value": 1 },
+          { "name": "Astonished", "value": 1 }
         ]
       },
       {
-        "name": "Excited",
+        "name": "Confused",
         "children": [
-          { "name": "Energetic", "value": 1 },
-          { "name": "Eager", "value": 1 }
+          { "name": "Disillusioned", "value": 1 },
+          { "name": "Perplexed", "value": 1 }
+        ]
+      },
+      {
+        "name": "Startled",
+        "children": [
+          { "name": "Dismayed", "value": 1 },
+          { "name": "Shocked", "value": 1 }
         ]
       }
     ]
