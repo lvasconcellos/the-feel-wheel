@@ -105,7 +105,7 @@ function Portuguese(props) {
               <div class="bd-highlight">
                 <textarea
                   style="border:0; background-color: ${bgColor};"
-                  class="form-control w-100"
+                  class="form-control w-80"
                   id="textAreaFeeling"
                   rows="6"
                   placeholder="Diga como se sente..."></textarea>
