@@ -1,5 +1,5 @@
-import { useRef, useLayoutEffect } from 'react';
-import './style.css';
+import React, { useRef, useLayoutEffect } from 'react';
+import '../style.css';
 import pSBC from 'shade-blend-color';
 import html2canvas from 'html2canvas';
 import Swal from 'sweetalert2';
@@ -7,12 +7,11 @@ import * as am4core from '@amcharts/amcharts4/core';
 import am4themes_animated from '@amcharts/amcharts4/themes/animated';
 import * as am4plugins_sunburst from '@amcharts/amcharts4/plugins/sunburst';
 import data from '../data/br.json';
+import us from '../dist/img/us.svg';
 
 am4core.useTheme(am4themes_animated);
 
 function Portuguese(props) {
-  const chart = useRef(null);
-
   useLayoutEffect(() => {
     // Create the chart
     let chart = am4core.create('chartdiv', am4plugins_sunburst.Sunburst);
@@ -82,40 +81,40 @@ function Portuguese(props) {
 
       Swal.fire({
         html: `<article
-         id="feel-card"
-         style="background-color: ${bgColor};"
-       >
-         <div class="d-flex flex-column bd-highlight justify-content-center flex-wrap">
-           <div class=" bd-highlight">
-             <span
-               style="background-color: ${bgLightColor};"
-               class="material-symbols-outlined p-1 m-1 circle-icon">
-                 ${icon}
-             </span>
-           </div>
-           <div class="bd-highlight">
-               <h2>
-                 Estou me sentindo <span class="text-uppercase">${feeling}</span>
-               </h2>
-           </div>
-           <div class="bd-highlight">
-               <h4 class="card-title" style="background-color: ${bgLightColor};">
-                 E me sinto assim, porque:
-               </h4>
-           </div>
-           </div>
-           <div class="bd-highlight">
-             <textarea
-               style="border:0; background-color: ${bgColor};"
-               class="form-control w-100"
-               id="textAreaFeeling"
-               rows="6"
-               placeholder="Diga como se sente..."></textarea>
-           </div>
-           </div>
-         </div>
-         </div>
-       </article>`,
+            id="feel-card"
+            style="background-color: ${bgColor};"
+          >
+            <div class="d-flex flex-column bd-highlight justify-content-center flex-wrap">
+              <div class=" bd-highlight">
+                <span
+                  style="background-color: ${bgLightColor};"
+                  class="material-symbols-outlined p-1 m-1 circle-icon">
+                    ${icon}
+                </span>
+              </div>
+              <div class="bd-highlight">
+                  <h2>
+                    Estou me sentindo <span class="text-uppercase">${feeling}</span>
+                  </h2>
+              </div>
+              <div class="bd-highlight">
+                  <h4 class="card-title" style="background-color: ${bgLightColor};">
+                    E me sinto assim, porque:
+                  </h4>
+              </div>
+              </div>
+              <div class="bd-highlight">
+                <textarea
+                  style="border:0; background-color: ${bgColor};"
+                  class="form-control w-100"
+                  id="textAreaFeeling"
+                  rows="6"
+                  placeholder="Diga como se sente..."></textarea>
+              </div>
+              </div>
+            </div>
+            </div>
+          </article>`,
         background: bgLightColor,
         confirmButtonText: 'Quero guardar isso',
         cancelButtonText: 'Prefero esquecer',
@@ -142,7 +141,7 @@ function Portuguese(props) {
               }).then((canvas) => {
                 var anchor = document.createElement('a'); //Create <a>
                 anchor.href = canvas.toDataURL();
-                anchor.download = `How I feel ${new Date().toJSON()}.png`;
+                anchor.download = `Como se sente ${new Date().toJSON()}.png`;
                 anchor.click();
               });
               resolve(true);
@@ -153,7 +152,7 @@ function Portuguese(props) {
         if (result.isConfirmed) {
           Swal.fire({
             icon: 'success',
-            title: 'Your feelings have been saved',
+            title: 'Seus sentimentos estão guardados',
             showConfirmButton: false,
             timer: 1500,
           });
@@ -167,7 +166,21 @@ function Portuguese(props) {
 
   return (
     <div className="App">
-      <h1 className="text-center fw-bolder"> How do you feel? </h1>
+      <div className="fixed-top">
+        <div className="d-flex flex-row bd-highlight mb-3">
+          <div className="p-2 bd-highlight">
+            <a href="/" class="link-success">
+              <img
+                src={us}
+                width="30px"
+                className="rounded mx-auto d-block"
+                alt="Português"
+              />
+            </a>
+          </div>
+        </div>
+      </div>
+      <h1 className="text-center fw-bolder"> Como está se sentindo? </h1>
       <div id="chartdiv"></div>
     </div>
   );
