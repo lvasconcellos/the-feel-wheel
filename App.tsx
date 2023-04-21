@@ -85,29 +85,36 @@ function App(props) {
         id="feel-card"
         style="background-color: ${bgColor}; font-family: 'Caveat', cursive;"
       >
-        <div class="article-wrapper">
-          <div class="article-body text-center p-0">
+        <div class="d-flex flex-column bd-highlight justify-content-center flex-wrap">
+          <div class=" bd-highlight">
             <span
               style="background-color: ${bgLightColor};"
-              class="material-symbols-outlined p-1 circle-icon"
-            >${icon}
+              class="material-symbols-outlined p-1 m-1 circle-icon">
+                ${icon}
             </span>
-            <h3 class="my-1">
-              I am <span class="text-uppercase">${feeling}</span>
-            </h3>
-            <p class="card-title" style="background-color: ${bgLightColor};">
-              And I feel this way because:
-            </p>
-            <div style="position: relative; width: 100%;">
-              <textarea
-                style="border:0; background-color: ${bgColor};"
-                class="form-control w-100"
-                id="textAreaFeeling"
-                rows="6"
-                placeholder="Say how you feel..."
-              ></textarea>
-            </div>
           </div>
+          <div class="bd-highlight">
+              <h3>
+                I am <span class="text-uppercase">${feeling}</span>
+              </h3>
+          </div>
+          <div class="bd-highlight">
+              <p class="card-title" style="background-color: ${bgLightColor};">
+                And I feel this way because:
+              </p>
+          </div>
+          </div>
+          <div class="bd-highlight">
+            <textarea
+              style="border:0; background-color: ${bgColor};"
+              class="form-control w-100"
+              id="textAreaFeeling"
+              rows="6"
+              placeholder="Say how you feel...">
+            </textarea>
+          </div>
+          </div>
+        </div>
         </div>
       </article>`,
         background: bgLightColor,
@@ -118,24 +125,28 @@ function App(props) {
         focusConfirm: false,
         showLoaderOnConfirm: true,
         allowOutsideClick: false,
-        preConfirm: async () => {
-          const feeling = document.getElementById('textAreaFeeling').innerText;
-          if (!feeling) {
-            Swal.showValidationMessage(`Please, say how you feel`);
-          } else {
-            await html2canvas(document.getElementById('feel-card'), {
-              allowTaint: false,
-              useCORS: true,
-            }).then((canvas) => {
-              var anchor = document.createElement('a'); //Create <a>
-              anchor.href = canvas.toDataURL();
-              anchor.download = `How I feel ${new Date().toJSON()}.png`;
-              anchor.click();
-            });
-          }
+        preConfirm: () => {
+          Swal.showLoading();
+          return new Promise((resolve) => {
+            if (!feeling) {
+              Swal.showValidationMessage(`Please, say how you feel`);
+              return;
+            }
+            setTimeout(() => {
+              html2canvas(document.getElementById('feel-card'), {
+                allowTaint: false,
+                useCORS: true,
+              }).then((canvas) => {
+                var anchor = document.createElement('a'); //Create <a>
+                anchor.href = canvas.toDataURL();
+                anchor.download = `How I feel ${new Date().toJSON()}.png`;
+                anchor.click();
+              });
+              resolve(true);
+            }, 3000);
+          });
         },
       }).then((result) => {
-        Swal.showLoading();
         if (result.isConfirmed) {
           Swal.fire({
             icon: 'success',
@@ -154,8 +165,8 @@ function App(props) {
 
   return (
     <div className="App">
-      <h1 className="text-center fw-bolder"> How are you feeling? </h1>
-      <div id="chartdiv"></div>
+      <h1 className="text-center fw-bolder"> How do you feel? </h1>
+      <div id="chartdiv" style={{ width: '100%', height: '80vh' }}></div>
     </div>
   );
 }
