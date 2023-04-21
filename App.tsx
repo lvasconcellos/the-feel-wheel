@@ -99,19 +99,18 @@ function App(props) {
               </h3>
           </div>
           <div class="bd-highlight">
-              <p class="card-title" style="background-color: ${bgLightColor};">
-                And I feel this way because:
-              </p>
+            <h4 class="card-title" style="background-color: ${bgLightColor};">
+              And I feel this way because:
+            </h4>
           </div>
           </div>
           <div class="bd-highlight">
             <textarea
-              style="border:0; background-color: ${bgColor};"
+              style="background-color: ${bgColor};"
               class="form-control w-100"
               id="textAreaFeeling"
               rows="6"
-              placeholder="Say how you feel...">
-            </textarea>
+              placeholder="Say how you feel..."></textarea>
           </div>
           </div>
         </div>
@@ -127,9 +126,14 @@ function App(props) {
         allowOutsideClick: false,
         preConfirm: () => {
           Swal.showLoading();
+
+          const isTextAreaFeelingEmpty =
+            document.getElementById('textAreaFeeling').value.trim().length == 0;
+
           return new Promise((resolve) => {
-            if (!feeling) {
+            if (isTextAreaFeelingEmpty) {
               Swal.showValidationMessage(`Please, say how you feel`);
+              Swal.hideLoading();
               return;
             }
             setTimeout(() => {
@@ -166,7 +170,7 @@ function App(props) {
   return (
     <div className="App">
       <h1 className="text-center fw-bolder"> How do you feel? </h1>
-      <div id="chartdiv" style={{ width: '100%', height: '80vh' }}></div>
+      <div id="chartdiv"></div>
     </div>
   );
 }
