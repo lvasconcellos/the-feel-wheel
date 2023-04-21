@@ -81,7 +81,7 @@ function App(props) {
       var icon = topDataContext.icon;
 
       Swal.fire({
-        html: `<article id="feel-card" style="background-color: ${bgColor}; font-family: "Caveat", cursive;"> <div class="article-wrapper"> <div class="article-body text-center px-0"> <span style="background-color: ${bgLightColor};" class="material-symbols-outlined p-1 circle-icon">${icon}</span> <h3 class="text-uppercase my-1">${feeling}</h3> <p class="card-title" style="background-color: ${bgLightColor};">I feel that way because:</p> <div class="form-outline my-3"> <textarea class="form-control" id="textAreaFeeling" rows="6"></textarea> <label class="form-label  text-dark" for="textAreaFeeling">Say how you feel...</label> </div> </div> </div> </article>`,
+        html: `<article id="feel-card" style="background-color: ${bgColor}; font-family: "Caveat", cursive;"> <div class="article-wrapper"> <div class="article-body text-center px-0"> <span style="background-color: ${bgLightColor};" class="material-symbols-outlined p-1 circle-icon">${icon}</span> <h3 class="my-1">I am <span class="text-uppercase">${feeling}</span></h3> <p class="card-title" style="background-color: ${bgLightColor};">And I feel this way because:</p> <div class="form-outline my-3"> <textarea class="form-control" id="textAreaFeeling" rows="6" placeholder="Say how you feel..."></textarea></div> </div> </div> </article>`,
         showCloseButton: true,
         confirmButtonText: 'Do you want to save it?',
         showLoaderOnConfirm: true,
