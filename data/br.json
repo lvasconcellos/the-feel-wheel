@@ -1,0 +1,338 @@
+var data = [
+  {
+    "icon": "sentiment_frustrated",
+    "color": "#ffdf8e",
+    "name": "Temerosa",
+    "children": [
+      {
+        "name": "Assustada",
+        "children": [
+          { "name": "Desamparada", "value": 1 },
+          { "name": "Atemorizada", "value": 1 },
+        ],
+      },
+      {
+        "name": "Ansiosa",
+        "children": [
+          { "name": "Consumida", "value": 1 },
+          { "name": "Preocupada", "value": 1 },
+        ],
+      },
+      {
+        "name": "Insegura",
+        "children": [
+          { "name": "Inadequada", "value": 1 },
+          { "name": "Inferior", "value": 1 },
+        ],
+      },
+      {
+        "name": "Fraca",
+        "children": [
+          { "name": "Inútil", "value": 1 },
+          { "name": "Insignificante", "value": 1 },
+        ],
+      },
+      {
+        "name": "Rejeitada",
+        "children": [
+          { "name": "Excluída", "value": 1 },
+          { "name": "Perseguida", "value": 1 },
+        ],
+      },
+      {
+        "name": "Ameaçada",
+        "children": [
+          { "name": "Nervosa", "value": 1 },
+          { "name": "Exposta", "value": 1 },
+        ],
+      },
+    ],
+  },
+  {
+    "icon": "sentiment_extremely_dissatisfied",
+    "color": "#ff908f",
+    "name": "Irritada",
+    "children": [
+      {
+        "name": "Decepcionada",
+        "children": [
+          { "name": "Traída", "value": 1 },
+          { "name": "Ressentida", "value": 1 },
+        ],
+      },
+      {
+        "name": "Humilhada",
+        "children": [
+          { "name": "Desrespeitada", "value": 1 },
+          { "name": "Ridicularizada", "value": 1 },
+        ],
+      },
+      {
+        "name": "Amargurada",
+        "children": [
+          { "name": "Indignada", "value": 1 },
+          { "name": "Violada", "value": 1 },
+        ],
+      },
+      {
+        "name": "Enlouquecida",
+        "children": [
+          { "name": "Furiosa", "value": 1 },
+          { "name": "Enciumada", "value": 1 },
+        ],
+      },
+      {
+        "name": "Agressiva",
+        "children": [
+          { "name": "Provocada", "value": 1 },
+          { "name": "Hostil", "value": 1 },
+        ],
+      },
+      {
+        "name": "Frustrada",
+        "children": [
+          { "name": "Enfurecida", "value": 1 },
+          { "name": "Incomodada", "value": 1 },
+        ],
+      },
+      {
+        "name": "Distante",
+        "children": [
+          { "name": "Retraída", "value": 1 },
+          { "name": "Dessensibilizada", "value": 1 },
+        ],
+      },
+      {
+        "name": "Criteriosa",
+        "children": [
+          { "name": "Desconfiada", "value": 1 },
+          { "name": "Desdenhosa", "value": 1 },
+        ],
+      },
+    ],
+  },
+  {
+    "icon": "sick",
+    "color": "#918e91",
+    "name": "Enojada",
+    "children": [
+      {
+        "name": "Desfavorável",
+        "children": [
+          { "name": "Crítica", "value": 1 },
+          { "name": "Envergonhada", "value": 1 },
+        ],
+      },
+      {
+        "name": "Decepcionada",
+        "children": [
+          { "name": "Chocada", "value": 1 },
+          { "name": "Revoltada", "value": 1 },
+        ],
+      },
+      {
+        "name": "Desgostosa",
+        "children": [
+          { "name": "Enjoada", "value": 1 },
+          { "name": "Insuportável", "value": 1 },
+        ],
+      },
+      {
+        "name": "Repelida",
+        "children": [
+          { "name": "Horrorizada", "value": 1 },
+          { "name": "Hesitante", "value": 1 },
+        ],
+      },
+    ],
+  },
+  {
+    "icon": "sentiment_sad",
+    "color": "#90bce4",
+    "name": "Triste",
+    "children": [
+      {
+        "name": "Ferida",
+        "children": [
+          { "name": "Constrangido", "value": 1 },
+          { "name": "Decepcionada", "value": 1 },
+        ],
+      },
+      {
+        "name": "Deprimida",
+        "children": [
+          { "name": "Inferior", "value": 1 },
+          { "name": "Vazia", "value": 1 },
+        ],
+      },
+      {
+        "name": "Culpada",
+        "children": [
+          { "name": "Arrependida", "value": 1 },
+          { "name": "Envergonhada", "value": 1 },
+        ],
+      },
+      {
+        "name": "Desesperada",
+        "children": [
+          { "name": "Impotente", "value": 1 },
+          { "name": "Lamentável", "value": 1 },
+        ],
+      },
+      {
+        "name": "Vulnerável",
+        "children": [
+          { "name": "Vitimizada", "value": 1 },
+          { "name": "Frágil", "value": 1 },
+        ],
+      },
+      {
+        "name": "Sozinha",
+        "children": [
+          { "name": "Isolada", "value": 1 },
+          { "name": "Abandonada", "value": 1 },
+        ],
+      },
+    ],
+  },
+  {
+    "icon": "sentiment_excited",
+    "color": "#fefd90",
+    "name": "Feliz",
+    "children": [
+      {
+        "name": "Otimista",
+        "children": [
+          { "name": "Inspirada", "value": 1 },
+          { "name": "Esperançosa", "value": 1 },
+        ],
+      },
+      {
+        "name": "Confiante",
+        "children": [
+          { "name": "Íntima", "value": 1 },
+          { "name": "Sensível", "value": 1 },
+        ],
+      },
+      {
+        "name": "Pacífica",
+        "children": [
+          { "name": "Grata", "value": 1 },
+          { "name": "Amorosa", "value": 1 },
+        ],
+      },
+      {
+        "name": "Poderosa",
+        "children": [
+          { "name": "Criativa", "value": 1 },
+          { "name": "Corajosa", "value": 1 },
+        ],
+      },
+      {
+        "name": "Aceita",
+        "children": [
+          { "name": "Valorizada", "value": 1 },
+          { "name": "Respeitada", "value": 1 },
+        ],
+      },
+      {
+        "name": "Orgulhosa",
+        "children": [
+          { "name": "Confiante", "value": 1 },
+          { "name": "Bem-sucedida", "value": 1 },
+        ],
+      },
+      {
+        "name": "Interessada",
+        "children": [
+          { "name": "Inquisitiva", "value": 1 },
+          { "name": "Curiosa", "value": 1 },
+        ],
+      },
+      {
+        "name": "Contente",
+        "children": [
+          { "name": "Alegre", "value": 1 },
+          { "name": "Livre", "value": 1 },
+        ],
+      },
+      {
+        "name": "Brincalhona",
+        "children": [
+          { "name": "Atrevida", "value": 1 },
+          { "name": "Excitada", "value": 1 },
+        ],
+      },
+    ],
+  },
+  {
+    "icon": "mood_bad",
+    "color": "#bea2d2",
+    "name": "Surpresa",
+    "children": [
+      {
+        "name": "Assustada",
+        "children": [
+          { "name": "Chocada", "value": 1 },
+          { "name": "Consternada", "value": 1 },
+        ],
+      },
+      {
+        "name": "Confusa",
+        "children": [
+          { "name": "Perplexa", "value": 1 },
+          { "name": "Desiludida", "value": 1 },
+        ],
+      },
+      {
+        "name": "Espantada",
+        "children": [
+          { "name": "Atônita", "value": 1 },
+          { "name": "Admiradas", "value": 1 },
+        ],
+      },
+      {
+        "name": "Excitada",
+        "children": [
+          { "name": "Enérgica", "value": 1 },
+          { "name": "Ansiosa", "value": 1 },
+        ],
+      },
+    ],
+  },
+  {
+    "icon": "sentiment_stressed",
+    "color": "#8ed9ae",
+    "name": "Desconfortável",
+    "children": [
+      {
+        "name": "Cansada",
+        "children": [
+          { "name": "Dispersa", "value": 1 },
+          { "name": "Sonolenta", "value": 1 },
+        ],
+      },
+      {
+        "name": "Estressada",
+        "children": [
+          { "name": "Desnorteado", "value": 1 },
+          { "name": "Sobrecarregada", "value": 1 },
+        ],
+      },
+      {
+        "name": "Atarefada",
+        "children": [
+          { "name": "Apressada", "value": 1 },
+          { "name": "Pressionada", "value": 1 },
+        ],
+      },
+      {
+        "name": "Entediada",
+        "children": [
+          { "name": "Apática", "value": 1 },
+          { "name": "Desinteressada", "value": 1 },
+        ],
+      },
+    ],
+  },
+];

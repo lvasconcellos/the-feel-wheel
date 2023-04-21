@@ -1,4 +1,5 @@
-import React, { useRef, useLayoutEffect } from 'react';
+import { useRef, useLayoutEffect } from 'react';
+import { Link } from 'react-router-dom';
 import './style.css';
 import pSBC from 'shade-blend-color';
 import html2canvas from 'html2canvas';
@@ -7,12 +8,12 @@ import * as am4core from '@amcharts/amcharts4/core';
 import am4themes_animated from '@amcharts/amcharts4/themes/animated';
 import * as am4plugins_sunburst from '@amcharts/amcharts4/plugins/sunburst';
 import data from './data/en.json';
+import br from './dist/img/br.svg';
+import Portuguese from './components/Portuguese';
 
 am4core.useTheme(am4themes_animated);
 
 function App(props) {
-  const chart = useRef(null);
-
   useLayoutEffect(() => {
     // Create the chart
     let chart = am4core.create('chartdiv', am4plugins_sunburst.Sunburst);
@@ -168,6 +169,20 @@ function App(props) {
 
   return (
     <div className="App">
+      <div className="fixed-top">
+        <div className="d-flex flex-row bd-highlight mb-3">
+          <div className="p-2 bd-highlight">
+            <Link className="link-primary p-2" to={Portuguese}>
+              <img
+                src={br}
+                width="30px"
+                className="rounded mx-auto d-block"
+                alt="Português"
+              />
+            </Link>
+          </div>
+        </div>
+      </div>
       <h1 className="text-center fw-bolder"> How do you feel? </h1>
       <div id="chartdiv"></div>
     </div>

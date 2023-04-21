@@ -1,4 +1,4 @@
-import React, { useRef, useLayoutEffect } from 'react';
+import { useRef, useLayoutEffect } from 'react';
 import './style.css';
 import pSBC from 'shade-blend-color';
 import html2canvas from 'html2canvas';
@@ -6,11 +6,11 @@ import Swal from 'sweetalert2';
 import * as am4core from '@amcharts/amcharts4/core';
 import am4themes_animated from '@amcharts/amcharts4/themes/animated';
 import * as am4plugins_sunburst from '@amcharts/amcharts4/plugins/sunburst';
-import data from './data/br.json';
+import data from '../data/br.json';
 
 am4core.useTheme(am4themes_animated);
 
-function AppBr(props) {
+function Portuguese(props) {
   const chart = useRef(null);
 
   useLayoutEffect(() => {
@@ -172,4 +172,4 @@ function AppBr(props) {
     </div>
   );
 }
-export default AppBr;
+export default Portuguese;
