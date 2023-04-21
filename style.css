@@ -5,7 +5,6 @@ body {
   font-size: 1.2rem;
   line-height: 1.6rem;
   min-height: 100vh;
-  background-color: #a8bbbf;
 }
 
 textarea {
@@ -14,6 +13,20 @@ textarea {
 
 p {
   margin: 10px 0 10px 0;
+}
+
+.curved-text {
+  position: relative;
+  display: inline-block;
+  margin: 0 auto;
+  font-size: 100px;
+}
+
+.curved-text span {
+  min-width: 0.5em;
+  text-align: center;
+  padding: 0;
+  margin: 0;
 }
 
 .material-symbols-outlined {

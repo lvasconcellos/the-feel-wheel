@@ -16,7 +16,7 @@ function App(props) {
   useLayoutEffect(() => {
     // Create the chart
     let chart = am4core.create('chartdiv', am4plugins_sunburst.Sunburst);
-    chart.fontSize = 11;
+    //chart.fontSize = '0.7rem';
 
     // Add multi-level data
     chart.data = data;
@@ -46,9 +46,9 @@ function App(props) {
     level1.slices.template.tooltipText = 'I feel {category}';
     level2.slices.template.tooltipText = 'I feel {category}';
 
-    level0.tooltip.fontSize = 24;
-    level1.tooltip.fontSize = 24;
-    level2.tooltip.fontSize = 24;
+    level0.tooltip.fontSize = '1.7rem';
+    level1.tooltip.fontSize = '1.7rem';
+    level2.tooltip.fontSize = '1.7rem';
 
     // Add slice click event
     level0.slices.template.events.on('hit', onTemplateHit);
@@ -86,12 +86,11 @@ function App(props) {
         style="background-color: ${bgColor}; font-family: 'Caveat', cursive;"
       >
         <div class="article-wrapper">
-          <div class="article-body text-center px-0">
+          <div class="article-body text-center p-0">
             <span
               style="background-color: ${bgLightColor};"
               class="material-symbols-outlined p-1 circle-icon"
-            >
-              ${icon}
+            >${icon}
             </span>
             <h3 class="my-1">
               I am <span class="text-uppercase">${feeling}</span>
@@ -111,17 +110,20 @@ function App(props) {
           </div>
         </div>
       </article>`,
-        background: bgColor,
-        showCloseButton: true,
-        confirmButtonText: 'Do you want to save it?',
-        showLoaderOnConfirm: true,
+        background: bgLightColor,
+        confirmButtonText: 'Save it',
+        cancelButtonText: 'Let it go',
+        showCancelButton: true,
+        showCloseButton: false,
         focusConfirm: false,
-        preConfirm: () => {
-          const feeling = Swal.getPopup().querySelector('#textAreaFeeling');
+        showLoaderOnConfirm: true,
+        allowOutsideClick: false,
+        preConfirm: async () => {
+          const feeling = document.getElementById('textAreaFeeling').innerText;
           if (!feeling) {
-            Swal.showValidationMessage(`Say how you feel`);
+            Swal.showValidationMessage(`Please, say how you feel`);
           } else {
-            html2canvas(document.getElementById('feel-card'), {
+            await html2canvas(document.getElementById('feel-card'), {
               allowTaint: false,
               useCORS: true,
             }).then((canvas) => {
@@ -132,11 +134,15 @@ function App(props) {
             });
           }
         },
-        allowOutsideClick: false,
       }).then((result) => {
         Swal.showLoading();
         if (result.isConfirmed) {
-          Swal.fire('Saved!', '', 'success');
+          Swal.fire({
+            icon: 'success',
+            title: 'Your feelings have been saved',
+            showConfirmButton: false,
+            timer: 1500,
+          });
         }
       });
     }
@@ -148,10 +154,8 @@ function App(props) {
 
   return (
     <div className="App">
-      <div
-        id="chartdiv"
-        style={{ height: '90vh', width: '100%', fontFamily: 'calibri' }}
-      ></div>
+      <h1 className="text-center fw-bolder"> How are you feeling? </h1>
+      <div id="chartdiv"></div>
     </div>
   );
 }
