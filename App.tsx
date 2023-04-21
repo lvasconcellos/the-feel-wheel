@@ -68,7 +68,7 @@ function App(props) {
             currentSlice._dataItem._dataContext.parent._dataContext;
           break;
         case 1:
-          topDataContext = currentSlice._dataItem._dataContext;
+          topDataContext = currentSlice._dataItem._dataContext.dataContext;
           break;
         default:
         // code block
